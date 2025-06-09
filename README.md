@@ -1,4 +1,6 @@
-# Developing-reservoir-computing-models-for-anticipatory-synchronizationDeveloping reservoir computing models for anticipatory synchronization with chaotic time series and real-time prediction
+# Developing-reservoir-computing-models-for-anticipatory-synchronization
+
+Developing reservoir computing models for anticipatory synchronization with chaotic time series and real-time prediction
 
 This is the code for the results and figures in our paper "Developing reservoir computing 
 models for anticipatory synchronization with chaotic time series and real-time prediction". 
