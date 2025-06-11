@@ -1,0 +1,10 @@
+load('v21.mat');
+load('v22.mat');
+load('v23.mat');
+figure
+subplot(3,1,1)
+plot(v21)
+subplot(3,1,2)
+plot(v22)
+subplot(3,1,3)
+plot(v23)
