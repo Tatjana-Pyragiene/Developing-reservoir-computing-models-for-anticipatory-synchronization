@@ -34,7 +34,9 @@ XX=Z(1,Ndel*Ntau+1:L-1).'; % current orginal time series v2(t)
 disp('Composing array XX:');
 tic;
 for nd=1:Ndel
-    XX=[XX, Z((Ndel-nd)*Ntau+1:L-nd*Ntau-1).'];
+    XX1=XX;
+    XX2=Z((Ndel-nd)*Ntau+1:L-nd*Ntau-1).';
+    XX=horzcat(XX1,XX2);
 end
 toc;
 LL=size(XX,1);
@@ -47,7 +49,9 @@ disp('Composing array R:');
 tic;
 % Composing matrix, Eq.(12):
 for nd=1:degree
-    R=[R,generateChebyshevs(XX,nd)];
+    R1=R;
+    R2=generateChebyshevs(XX,nd);
+    R=horzcat(R1,R2);
 end
 toc;
 R=R.'; % This matrix will be used for optimization;
@@ -109,7 +113,7 @@ for j=j0:LP-1
     if countv==1000
         toc;
         countv=0;
-        j_v=j
+        j_v=j;
         tic;
     end
   for jn=1:n
