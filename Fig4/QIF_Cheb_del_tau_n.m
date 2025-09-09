@@ -37,7 +37,9 @@ tic;
 % see Eq.(2);
 disp('Composing XX array:');
 for nd=1:Ndel
-    XX=[XX, Z(1,(Ndel-nd)*Ntau+1:L-nd*Ntau-1).'];
+     XX1=XX;
+     XX2= Z(1,(Ndel-nd)*Ntau+1:L-nd*Ntau-1).';
+     XX=horzcat(XX1,XX2);
 end
 toc;
 LL=size(XX,1);
@@ -51,9 +53,11 @@ disp('Composing R array:');
 % Composing matrix, Eq.(12):
 for nd=1:degree
     toc;
-    nd_v=nd
+    nd_v=nd;
     tic;
-    R=[R,generateChebyshevs(XX,nd)];    
+    R1=R;
+    R2=generateChebyshevs(XX,nd);    
+    R=horzcat(R1,R2);
 end
 toc;
 R=R.'; % This matrix will be used for optimization;
@@ -68,7 +72,7 @@ disp('Composing DRnd array:');
 sm=1;
 for nd=1:degree
     toc;
-    nd_v=nd  
+    nd_v=nd;  
     tic;
     DRnd=generateChebyshevsDiffLyap(XX,nd);
     ld=length(DRnd);
@@ -121,7 +125,7 @@ for j=j0:LP-1
     if countv==1000
         toc;
         countv=0;
-        j_v=j
+        j_v=j;
         tic;
     end
   for jn=1:n
